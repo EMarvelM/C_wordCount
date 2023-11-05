@@ -83,11 +83,31 @@ hash_n *addToNode(hash_t *ht, char *next_t)
 void printall(hash_t *ht)
 {
     unsigned long int i = 0;
+    unsigned long int j = 0;
+    unsigned long int uniq = 0;
+
+    printf("Word Count Summary:\n\n");
+
     while (true && i < ht->size)
     {
         if (ht->array[i] != NULL)
         {
-            printf("Read: %s %d times\n", ht->array[i]->key, ht->array[i]->value);
+            j += ht->array[i]->value;
+            uniq += 1;
+
+        }
+        i++;
+    }
+    printf("Total words: %ld\n", j);
+    printf("Unique words: %ld\n\n", uniq);
+    printf("Word Frequency: \n");
+
+    i = 0;
+    while (true && i < ht->size)
+    {
+        if (ht->array[i] != NULL)
+        {
+            printf("\"%s\" - %d\n", ht->array[i]->key, ht->array[i]->value);
         }
         i++;
     }
