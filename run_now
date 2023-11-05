@@ -1,0 +1,17 @@
+#!/bin/bash
+
+while true; do
+	outputFile="a"
+	gcc -o $outputFile *.c
+	#if ["$?" -eq "0"]; then
+	#	echo -e "Compile error!"
+	#	exit -1
+	#fi
+	if [$testFile -eq '']; then
+		read -p "Test file: " testFile
+	fi
+	./$outputFile $testFile
+
+	sleep 6
+	clear -x
+done
